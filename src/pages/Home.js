@@ -1,10 +1,10 @@
 import React from "react";
-import { property_data } from "../utils/constants";
 import { usePropertyContext } from "../context/property_context";
 
 const HomePage = () => {
-  const { removeProperty } = usePropertyContext();
-
+  const { results, savedProperties, removeProperty } = usePropertyContext();
+  console.log(results);
+  console.log(savedProperties);
   return (
     <main>
       <h1>Home pages</h1>

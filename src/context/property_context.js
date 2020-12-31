@@ -1,6 +1,7 @@
 import React, { useEffect, useContext, useReducer } from "react";
 import reducer from "../reducers/property_reducer";
-import { REMOVE_PROPERTY, ADD_PROPERTY } from "../actions.js";
+import { GET_PROPERTIES, REMOVE_PROPERTY, ADD_PROPERTY } from "../actions.js";
+import { property_data } from "../utils/constants";
 
 const initialState = {
   results: [],
@@ -12,13 +13,23 @@ const PropertyContext = React.createContext();
 export const PropertyProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
+  const fetchProperty = (data) => {
+    let propertyData = data;
+    dispatch({ type: GET_PROPERTIES, payload: propertyData });
+  };
+
   const removeProperty = () => {
-    console.log("here");
     dispatch({ type: REMOVE_PROPERTY });
   };
 
+  useEffect(() => {
+    fetchProperty(property_data);
+  }, []);
+
   return (
-    <PropertyContext.Provider value={{ ...state, removeProperty }}>
+    <PropertyContext.Provider
+      value={{ ...state, fetchProperty, removeProperty }}
+    >
       {children}
     </PropertyContext.Provider>
   );
