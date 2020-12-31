@@ -1,0 +1,2 @@
+export const ADD_PROPERTY = "ADD_PROPERTY";
+export const REMOVE_PROPERTY = "REMOVE_PROPERTY";
