@@ -23,9 +23,11 @@ export const PropertyProvider = ({ children }) => {
   };
 
   useEffect(() => {
+    console.log("yes");
     fetchProperty(property_data);
   }, []);
 
+  console.log("kinda");
   return (
     <PropertyContext.Provider
       value={{ ...state, fetchProperty, removeProperty }}

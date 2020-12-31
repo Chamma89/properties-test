@@ -3,7 +3,6 @@ import "../styling/propertyCard.scss";
 
 const PropertyCard = ({ property }) => {
   const { id, mainImage, price, agency } = property;
-  console.log(property);
   return (
     <div className="property-card">
       <div

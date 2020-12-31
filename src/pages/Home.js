@@ -2,20 +2,19 @@ import React from "react";
 import { usePropertyContext } from "../context/property_context";
 import PropertyCard from "../components/PropertyCard";
 import "../styling/home.scss";
+import Results from "../components/Results";
+import SavedProperties from "../components/SavedProperties";
 
 const HomePage = () => {
   const { results, savedProperties, removeProperty } = usePropertyContext();
+  console.log(results);
   return (
     <div className="property-columns">
       <div>
-        {results.map((property) => {
-          return <PropertyCard key={property.id} property={property} />;
-        })}
+        <Results />
       </div>
       <div>
-        {savedProperties.map((property) => {
-          return <PropertyCard key={property.id} property={property} />;
-        })}
+        <SavedProperties />
       </div>
     </div>
   );
