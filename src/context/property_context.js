@@ -19,7 +19,6 @@ export const PropertyProvider = ({ children }) => {
   };
 
   const addProperty = (id, mainImage, price, agency) => {
-    console.log("addProperty in hook");
     dispatch({ type: ADD_PROPERTY, payload: { id, mainImage, price, agency } });
   };
 
@@ -30,6 +29,10 @@ export const PropertyProvider = ({ children }) => {
   useEffect(() => {
     fetchProperty(property_data);
   }, []);
+
+  useEffect(() => {
+    console.log(state.results);
+  }, [state.results]);
 
   return (
     <PropertyContext.Provider

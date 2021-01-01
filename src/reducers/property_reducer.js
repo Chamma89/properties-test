@@ -20,11 +20,20 @@ const property_reducer = (state, action) => {
     }
 
     const newItem = {
-      id,
-      mainImage,
       price,
       agency,
+      id,
+      mainImage,
     };
+
+    state.results.map((property) => {
+      if (property.id === newItem.id) {
+        property["isAdded"] = true;
+      }
+    });
+
+    console.log(state.results);
+
     return {
       ...state,
       savedProperties: [...state.savedProperties, newItem],
@@ -35,6 +44,15 @@ const property_reducer = (state, action) => {
     let tempProperties = state.savedProperties.filter(
       (property) => property.id !== action.payload
     );
+
+    state.results.map((property) => {
+      if (property.id === action.payload) {
+        console.log(property.id);
+        console.log(action.payload);
+        property["isAdded"] = false;
+      }
+    });
+
     return { ...state, savedProperties: tempProperties };
   }
 

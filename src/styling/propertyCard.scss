@@ -7,6 +7,7 @@
   border-radius: 3px;
   position: relative;
   margin-bottom: 20px;
+  transition: all 0.5s;
   width: 200px;
 
   &__body img {
@@ -26,6 +27,15 @@
   &__footer {
     padding: 10px;
     transition: all 0.5s ease-in-out;
+
+    h5 svg {
+      color: gold;
+    }
+  }
+
+  &:hover {
+    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+    transform: scale(1.04);
   }
 
   .add-remove-button {
@@ -44,11 +54,15 @@
     opacity: 1;
   }
 
-  &:hover .property-card__footer {
+  &.active:hover .property-card__footer {
     margin-bottom: 20px;
   }
 
   .add-button {
     background-color: #66cd00;
+  }
+
+  .hide-button {
+    display: none;
   }
 }

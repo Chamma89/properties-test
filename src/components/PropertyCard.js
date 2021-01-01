@@ -1,13 +1,13 @@
 import React from "react";
 import "../styling/propertyCard.scss";
 import { usePropertyContext } from "../context/property_context";
-import { FaPlus, FaTrash } from "react-icons/fa";
+import { FaPlus, FaStar, FaTrash } from "react-icons/fa";
 
 const PropertyCard = ({ property, addButton }) => {
   const { removeProperty, addProperty } = usePropertyContext();
-  const { id, mainImage, price, agency } = property;
+  const { id, mainImage, price, agency, isAdded } = property;
   return (
-    <div className="property-card">
+    <div className={`${!isAdded ? "property-card active" : "property-card"}`}>
       <div
         className="property-card__header"
         style={{ background: agency.brandingColors.primary }}
@@ -17,10 +17,19 @@ const PropertyCard = ({ property, addButton }) => {
       <div className="property-card__body">
         <img src={mainImage} alt="property image" />
       </div>
-      <div className="property-card__footer">Price: {price}</div>
+      <div className="property-card__footer">
+        {isAdded ? (
+          <h5>
+            Added to favourites <FaStar />
+          </h5>
+        ) : null}
+        Price: {price}
+      </div>
       {addButton ? (
         <button
-          className="add-remove-button add-button"
+          className={`${
+            !isAdded ? "add-remove-button add-button" : "hide-button"
+          }`}
           type="button"
           onClick={() => addProperty(id, mainImage, price, agency)}
         >
