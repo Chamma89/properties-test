@@ -17,7 +17,13 @@ const SavedProperties = () => {
     <div>
       <h3>Saved properties</h3>
       {savedProperties.map((property) => {
-        return <PropertyCard property={property} key={property.id} />;
+        return (
+          <PropertyCard
+            property={property}
+            key={property.id}
+            addButton={false}
+          />
+        );
       })}
     </div>
   );

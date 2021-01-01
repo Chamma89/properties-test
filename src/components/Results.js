@@ -9,7 +9,13 @@ const Results = () => {
     <div>
       <h3>Results</h3>
       {results.map((property) => {
-        return <PropertyCard property={property} key={property.id} />;
+        return (
+          <PropertyCard
+            property={property}
+            key={property.id}
+            addButton={true}
+          />
+        );
       })}
     </div>
   );

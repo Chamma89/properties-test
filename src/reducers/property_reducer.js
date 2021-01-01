@@ -10,7 +10,25 @@ const property_reducer = (state, action) => {
   }
 
   if (action.type === ADD_PROPERTY) {
-    return console.log(state);
+    const { id, mainImage, price, agency } = action.payload;
+    const tempProperty = state.savedProperties.find((item) => {
+      return item.id === id;
+    });
+
+    if (tempProperty) {
+      return { ...state };
+    }
+
+    const newItem = {
+      id,
+      mainImage,
+      price,
+      agency,
+    };
+    return {
+      ...state,
+      savedProperties: [...state.savedProperties, newItem],
+    };
   }
 
   if (action.type === REMOVE_PROPERTY) {

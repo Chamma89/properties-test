@@ -18,8 +18,9 @@ export const PropertyProvider = ({ children }) => {
     dispatch({ type: GET_PROPERTIES, payload: propertyData });
   };
 
-  const addProperty = (id) => {
-    dispatch({ type: ADD_PROPERTY, payload: id });
+  const addProperty = (id, mainImage, price, agency) => {
+    console.log("addProperty in hook");
+    dispatch({ type: ADD_PROPERTY, payload: { id, mainImage, price, agency } });
   };
 
   const removeProperty = (id) => {
@@ -30,10 +31,9 @@ export const PropertyProvider = ({ children }) => {
     fetchProperty(property_data);
   }, []);
 
-  console.log("kinda");
   return (
     <PropertyContext.Provider
-      value={{ ...state, fetchProperty, removeProperty }}
+      value={{ ...state, fetchProperty, addProperty, removeProperty }}
     >
       {children}
     </PropertyContext.Provider>

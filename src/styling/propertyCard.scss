@@ -1,5 +1,5 @@
 .property-card {
-  border: 1px solid #c9c9c9;
+  border: 2px solid #c9c9c9;
   border-radius: 3px;
   margin-bottom: 20px;
   width: 200px;
@@ -20,5 +20,17 @@
 
   &__footer {
     padding: 10px;
+  }
+
+  .add-remove-button {
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    padding: 5px;
+    width: 100%;
+  }
+
+  .add-button {
+    background-color: #66cd00;
   }
 }
