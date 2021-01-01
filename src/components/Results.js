@@ -7,7 +7,8 @@ const Results = () => {
   const { results } = usePropertyContext();
   return (
     <div>
-      <h3>Results</h3>
+      <h3 className="heading">Results</h3>
+      <hr />
       {results.map((property) => {
         return (
           <PropertyCard

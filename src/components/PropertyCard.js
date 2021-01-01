@@ -1,7 +1,7 @@
 import React from "react";
 import "../styling/propertyCard.scss";
 import { usePropertyContext } from "../context/property_context";
-import { FaPlus, FaTimes, FaTrash } from "react-icons/fa";
+import { FaPlus, FaTrash } from "react-icons/fa";
 
 const PropertyCard = ({ property, addButton }) => {
   const { removeProperty, addProperty } = usePropertyContext();

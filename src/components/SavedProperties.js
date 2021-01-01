@@ -8,14 +8,15 @@ const SavedProperties = () => {
   if (savedProperties.length === 0) {
     return (
       <div>
-        <h3>Saved properties</h3>
+        <h3 className="heading">Saved properties</h3>
         <h3>You have no saved properties</h3>
       </div>
     );
   }
   return (
     <div>
-      <h3>Saved properties</h3>
+      <h3 className="heading">Saved properties</h3>
+      <hr />
       {savedProperties.map((property) => {
         return (
           <PropertyCard
