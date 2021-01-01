@@ -1,7 +1,7 @@
 import React, { useEffect, useContext, useReducer } from "react";
 import reducer from "../reducers/property_reducer";
-import { GET_PROPERTIES, REMOVE_PROPERTY, ADD_PROPERTY } from "../actions.js";
 import { property_data } from "../utils/constants";
+import { GET_PROPERTIES, REMOVE_PROPERTY, ADD_PROPERTY } from "../actions.js";
 
 const initialState = {
   results: [],
@@ -18,12 +18,15 @@ export const PropertyProvider = ({ children }) => {
     dispatch({ type: GET_PROPERTIES, payload: propertyData });
   };
 
-  const removeProperty = () => {
-    dispatch({ type: REMOVE_PROPERTY });
+  const addProperty = (id) => {
+    dispatch({ type: ADD_PROPERTY, payload: id });
+  };
+
+  const removeProperty = (id) => {
+    dispatch({ type: REMOVE_PROPERTY, payload: id });
   };
 
   useEffect(() => {
-    console.log("yes");
     fetchProperty(property_data);
   }, []);
 

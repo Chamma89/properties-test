@@ -9,8 +9,15 @@ const property_reducer = (state, action) => {
     };
   }
 
+  if (action.type === ADD_PROPERTY) {
+    return console.log(state);
+  }
+
   if (action.type === REMOVE_PROPERTY) {
-    return console.log("property reducer");
+    let tempProperties = state.savedProperties.filter(
+      (property) => property.id !== action.payload
+    );
+    return { ...state, savedProperties: tempProperties };
   }
 
   throw new Error(`No Matching "${action.type}" - action type`);

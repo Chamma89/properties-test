@@ -7,8 +7,9 @@ const Results = () => {
   const { results } = usePropertyContext();
   return (
     <div>
+      <h3>Results</h3>
       {results.map((property) => {
-        return <PropertyCard property={property} />;
+        return <PropertyCard property={property} key={property.id} />;
       })}
     </div>
   );
