@@ -19,3 +19,9 @@ beforeEach(() => {
     </PropertyProvider>
   );
 });
+
+test(`Find "Results" heading`, async () => {
+  let heading = await screen.findAllByText("Results");
+
+  expect(heading).toBeTruthy();
+});
