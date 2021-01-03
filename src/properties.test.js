@@ -30,11 +30,35 @@ test(`Find "Results" heading`, async () => {
 
 // Check via dataid that all properties on page are visible
 
-const allropertyIds = [1, 2, 3, 4, 5];
+const allpropertyIds = [1, 2, 3, 4, 5];
 
-allropertyIds.forEach((propId) => {
+allpropertyIds.forEach((propId) => {
   test(`Check if property with dataid={${propId}} exists in document`, async () => {
     let properties = await screen.findByTestId(propId);
     expect(properties).toBeInTheDocument();
   });
+});
+
+test("Add first property containing dataid=1 and confirm it exists in Saved properties", async () => {
+  let firstProperty = await screen.getByTestId(1).getAttribute("data-testid");
+
+  fireEvent.click(screen.getAllByText("Add")[0]);
+
+  let savedProperties = await screen.getAllByLabelText("Saved properties")[0];
+
+  expect(savedProperties.innerHTML).toContain(`data-testid="${firstProperty}"`);
+});
+
+test("Remove first peoperty in Saved properties containing dataid=4 and confirm it no longer exists in Saved properties", async () => {
+  let firstSavedProperty = await screen
+    .getByTestId(4)
+    .getAttribute("data-testid");
+
+  fireEvent.click(screen.getAllByText("Remove")[0]);
+
+  let savedProperties = await screen.getAllByLabelText("Saved properties")[0];
+
+  expect(savedProperties.innerHTML).not.toContain(
+    `data-testid="${firstSavedProperty}"`
+  );
 });

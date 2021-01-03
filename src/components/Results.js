@@ -6,7 +6,7 @@ import { usePropertyContext } from "../context/property_context";
 const Results = () => {
   const { results } = usePropertyContext();
   return (
-    <div>
+    <div aria-label="Results">
       <h3 className="heading">Results</h3>
       <hr />
       {results.map((property) => {

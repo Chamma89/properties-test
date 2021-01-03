@@ -14,7 +14,7 @@ const SavedProperties = () => {
     );
   }
   return (
-    <div>
+    <div aria-label="Saved properties">
       <h3 className="heading">Saved properties</h3>
       <hr />
       {savedProperties.map((property) => {
