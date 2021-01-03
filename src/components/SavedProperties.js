@@ -1,5 +1,6 @@
 import React from "react";
 import "../styling/propertyCard.scss";
+import { FaSadTear } from "react-icons/fa";
 import PropertyCard from "./PropertyCard";
 import { usePropertyContext } from "../context/property_context";
 
@@ -8,14 +9,17 @@ const SavedProperties = () => {
   if (savedProperties.length === 0) {
     return (
       <div>
-        <h3 className="heading">Saved properties</h3>
-        <h3>You have no saved properties</h3>
+        <h1 className="heading">Saved properties </h1>
+        <h3>
+          You have no saved properties{" "}
+          <FaSadTear style={{ fontSize: "30px", color: "#69b8db" }} />
+        </h3>
       </div>
     );
   }
   return (
     <div aria-label="Saved properties">
-      <h3 className="heading">Saved properties</h3>
+      <h1 className="heading">Saved properties ({savedProperties.length})</h1>
       <hr />
       {savedProperties.map((property) => {
         return (

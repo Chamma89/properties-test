@@ -1,0 +1,51 @@
+@import "./variables.scss";
+
+.navbar {
+  background: $softBlack;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  padding: 25px;
+
+  h1 {
+    letter-spacing: 5px;
+  }
+
+  h3 {
+    align-self: center;
+    color: #e4002b;
+  }
+
+  img {
+    margin-right: 4px;
+  }
+
+  .react-logo {
+    width: 80px;
+  }
+
+  .logoMain {
+    width: 25px;
+    border-radius: 20px;
+    -webkit-animation: spin 4s linear infinite;
+    -moz-animation: spin 4s linear infinite;
+    animation: spin 4s linear infinite;
+  }
+
+  @-moz-keyframes spin {
+    100% {
+      -moz-transform: rotate(360deg);
+    }
+  }
+  @-webkit-keyframes spin {
+    100% {
+      -webkit-transform: rotate(360deg);
+    }
+  }
+  @keyframes spin {
+    100% {
+      -webkit-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+}
