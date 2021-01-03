@@ -28,7 +28,7 @@ test(`Find "Results" heading`, async () => {
   expect(heading).toBeTruthy();
 });
 
-// Check via dataid that all properties on page are visible
+// Test #1
 
 const allpropertyIds = [1, 2, 3, 4, 5];
 
@@ -39,6 +39,8 @@ allpropertyIds.forEach((propId) => {
   });
 });
 
+// Test #2
+
 test("Add first property containing dataid=1 and confirm it exists in Saved properties", async () => {
   let firstProperty = await screen.getByTestId(1).getAttribute("data-testid");
 
@@ -48,6 +50,8 @@ test("Add first property containing dataid=1 and confirm it exists in Saved prop
 
   expect(savedProperties.innerHTML).toContain(`data-testid="${firstProperty}"`);
 });
+
+// Test #3
 
 test("Remove first peoperty in Saved properties containing dataid=4 and confirm it no longer exists in Saved properties", async () => {
   let firstSavedProperty = await screen

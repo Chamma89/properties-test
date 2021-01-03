@@ -1,70 +1,49 @@
-# Getting Started with Create React App
+# Property Coding Test :house:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## The Aim
 
-## Available Scripts
+To display the list of properties in a column named "Results" where you can then choose to favourite/save a property and add it to the "Saved properties" column. You must also be able to remove a saved property from the "Saved" column.
 
-In the project directory, you can run:
+## Design and Implementation
 
-### `npm start`
+This project was built using ReactJs and SCSS, and tested using the React testing library which uses Jest.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+I chose to separate Results and Saved properties into their own components so that they are able to work independently and avoid any conflict. Both these components both use the PropertyCard component which contains the structure needed for both to display the cards.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+I decided to create my own hook, usePropertyContext, in order to be able to communicate to the useReducer via functions on what action is needed and to be able to pass the data needed as well. This allowed for a clean and efficient flow of state management.
 
-### `npm test`
+The user functionality allows them to add a property, which will then display a comment that the card has been added to favourites and then disable the button. Once the user removes that same property from favourites, they will be given access to add that property once again.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+My first iteration kept the button and allowed the user to attempt to add the same card twice, which they weren't able to. I decided that hiding the button and displaying a comment was a better UX in the end.
 
-### `npm run build`
+## Getting Started
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+In order to run the program, you must follow these steps:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Install dependencies using npm or yarn
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+npm install
+```
 
-### `npm run eject`
+2. Run the following command to start the server:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```
+npm start - which will have the project running at http://localhost:3000/
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+3. To run tests
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```
+npm test
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Technology
 
-## Learn More
+The following Languages and tools were used:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- ReactJs
+- Javascript
+- SCSS
+- React testing library
+- Jest
