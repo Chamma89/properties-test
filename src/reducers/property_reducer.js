@@ -15,6 +15,7 @@ const property_reducer = (state, action) => {
       return item.id === id;
     });
 
+    // To prevent re-adding the same property
     if (tempProperty) {
       return { ...state };
     }
@@ -32,8 +33,6 @@ const property_reducer = (state, action) => {
       }
     });
 
-    console.log(state.results);
-
     return {
       ...state,
       savedProperties: [...state.savedProperties, newItem],
@@ -47,8 +46,6 @@ const property_reducer = (state, action) => {
 
     state.results.map((property) => {
       if (property.id === action.payload) {
-        console.log(property.id);
-        console.log(action.payload);
         property["isAdded"] = false;
       }
     });

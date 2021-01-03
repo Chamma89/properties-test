@@ -7,6 +7,7 @@ import SavedProperties from "../components/SavedProperties";
 
 const HomePage = () => {
   const { results, savedProperties, removeProperty } = usePropertyContext();
+
   return (
     <div className="property-columns">
       <div>

@@ -8,16 +8,20 @@
   position: relative;
   margin-bottom: 20px;
   transition: all 0.5s;
-  width: 200px;
+  width: 400px;
 
-  &__body img {
-    width: 100%;
+  &__body {
+    display: flex;
+
+    img {
+      width: 100%;
+    }
   }
 
   &__header {
     display: flex;
     justify-content: center;
-    padding: 5px 0px;
+    padding: 5px 5px;
 
     img {
       width: 40%;
@@ -25,11 +29,24 @@
   }
 
   &__footer {
-    padding: 10px;
+    background-color: #232b2b;
+    padding: 10px 20px;
     transition: all 0.5s ease-in-out;
 
+    h5 {
+      font-size: 15px;
+      font-weight: 600;
+      color: #ffffff;
+    }
+
+    .price {
+      color: #ffffff;
+      font-size: 20px;
+      letter-spacing: 3px;
+    }
+
     h5 svg {
-      color: gold;
+      color: green;
     }
   }
 
@@ -39,15 +56,32 @@
   }
 
   .add-remove-button {
+    background-color: #232b2b;
     border: none;
     bottom: 0px;
+    border-color: transparent;
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 900px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
     cursor: pointer;
-    font-weight: 600;
+    display: flex;
+    font-weight: 400;
+    justify-content: center;
+    letter-spacing: 0.1rem;
     opacity: 0;
     padding: 5px;
     position: absolute;
-    transition: all 0.5s ease-in-out;
+    transition: all 0.3s linear;
     width: 100%;
+
+    &:hover {
+      background-color: #3b444b;
+    }
+
+    svg {
+      margin-left: 5px;
+    }
   }
 
   &:hover .add-remove-button {
@@ -59,7 +93,15 @@
   }
 
   .add-button {
-    background-color: #66cd00;
+    svg {
+      color: gold;
+    }
+  }
+
+  .remove-button {
+    svg {
+      color: red;
+    }
   }
 
   .hide-button {

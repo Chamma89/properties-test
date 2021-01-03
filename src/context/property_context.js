@@ -4,7 +4,14 @@ import { property_data } from "../utils/constants";
 import { GET_PROPERTIES, REMOVE_PROPERTY, ADD_PROPERTY } from "../actions.js";
 
 const initialState = {
-  results: [],
+  results: [
+    {
+      id: null,
+      agency: {
+        brandingColors: { primary: null },
+      },
+    },
+  ],
   savedProperties: [],
 };
 
@@ -31,7 +38,7 @@ export const PropertyProvider = ({ children }) => {
   }, []);
 
   useEffect(() => {
-    console.log(state.results);
+    //console.log(state.results);
   }, [state.results]);
 
   return (
