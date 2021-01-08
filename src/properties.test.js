@@ -23,14 +23,14 @@ beforeEach(() => {
 // Quick demo to check tests are working
 
 test(`Find "Results" heading`, async () => {
-  let heading = await screen.findAllByText("Results");
+  let heading = await screen.getByText("Results");
 
-  expect(heading).toBeTruthy();
+  expect(heading).toBeInTheDocument();
 });
 
 // Test #1
 
-const allpropertyIds = [1, 2, 3, 4, 5];
+const allpropertyIds = [1, 2, 3, 4];
 
 allpropertyIds.forEach((propId) => {
   test(`Check if property with dataid={${propId}} exists in document`, async () => {

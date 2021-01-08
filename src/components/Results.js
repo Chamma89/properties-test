@@ -5,10 +5,12 @@ import { usePropertyContext } from "../context/property_context";
 
 const Results = () => {
   const { results } = usePropertyContext();
-  console.log(results);
   return (
     <div aria-label="Results">
-      <h1 className="heading">Results ({results.length})</h1>
+      <div className="heading">
+        <h1 className="heading">Results</h1>
+        <h2>({results.length})</h2>
+      </div>
       <hr />
       {results.map((property) => {
         return (
