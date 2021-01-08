@@ -15,7 +15,9 @@ const PropertyCard = ({ property, addButton }) => {
         className="property-card__header"
         style={{ background: agency.brandingColors.primary }}
       >
-        <img src={agency.logo} alt="" />
+        <div>
+          <img src={agency.logo} alt="propert image" />
+        </div>
       </div>
       <div className="property-card__body">
         <img src={mainImage} alt="property image" />
