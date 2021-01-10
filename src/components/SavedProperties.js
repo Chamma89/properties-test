@@ -8,8 +8,10 @@ const SavedProperties = () => {
   const { savedProperties, removeProperty } = usePropertyContext();
   if (savedProperties.length === 0) {
     return (
-      <div aria-label="Saved properties">
-        <h1 className="heading">Saved properties</h1>
+      <div>
+        <div className="heading">
+          <h1>Saved properties</h1>
+        </div>
         <h3>
           You have no saved properties{" "}
           <FaSadTear style={{ fontSize: "30px", color: "#69b8db" }} />
@@ -18,9 +20,9 @@ const SavedProperties = () => {
     );
   }
   return (
-    <div aria-label="Saved properties">
+    <div>
       <div className="heading">
-        <h1 className="heading">Saved properties</h1>
+        <h1>Saved properties</h1>
         <h2>({savedProperties.length})</h2>
       </div>
       <hr />

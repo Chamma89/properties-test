@@ -10,10 +10,10 @@ const HomePage = () => {
 
   return (
     <div className="property-columns">
-      <div>
+      <div aria-label="Results">
         <Results />
       </div>
-      <div>
+      <div aria-label="Saved properties">
         <SavedProperties />
       </div>
     </div>

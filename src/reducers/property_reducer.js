@@ -1,4 +1,9 @@
-import { GET_PROPERTIES, REMOVE_PROPERTY, ADD_PROPERTY } from "../actions.js";
+import {
+  GET_PROPERTIES,
+  GET_SINGLE_PROPERTY,
+  REMOVE_PROPERTY,
+  ADD_PROPERTY,
+} from "../actions.js";
 
 const property_reducer = (state, action) => {
   if (action.type === GET_PROPERTIES) {
@@ -6,6 +11,20 @@ const property_reducer = (state, action) => {
       ...state,
       results: action.payload.results,
       savedProperties: action.payload.saved,
+    };
+  }
+
+  if (action.type === GET_SINGLE_PROPERTY) {
+    let singleProperty = action.payload.results.filter(
+      (property) => property.id === action.payload.id
+    );
+    console.log(action.payload.results);
+    console.log(singleProperty);
+    console.log(`action payload id is: ${action.payload.id}`);
+
+    return {
+      ...state,
+      singleProperty: [...state.singleProperty, singleProperty],
     };
   }
 

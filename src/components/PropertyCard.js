@@ -1,7 +1,8 @@
 import React from "react";
 import "../styling/propertyCard.scss";
 import { usePropertyContext } from "../context/property_context";
-import { FaMinusCircle, FaCheckCircle, FaStar, FaTrash } from "react-icons/fa";
+import { FaMinusCircle, FaCheckCircle, FaStar, FaSearch } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const PropertyCard = ({ property, addButton }) => {
   const { removeProperty, addProperty } = usePropertyContext();
@@ -17,6 +18,9 @@ const PropertyCard = ({ property, addButton }) => {
       >
         <div>
           <img src={agency.logo} alt="propert image" />
+          <Link to={`/property/${id}`} className="link">
+            <FaSearch />
+          </Link>
         </div>
       </div>
       <div className="property-card__body">

@@ -1,7 +1,12 @@
 import React, { useEffect, useContext, useReducer } from "react";
 import reducer from "../reducers/property_reducer";
 import { property_data } from "../utils/constants";
-import { GET_PROPERTIES, REMOVE_PROPERTY, ADD_PROPERTY } from "../actions.js";
+import {
+  GET_PROPERTIES,
+  REMOVE_PROPERTY,
+  ADD_PROPERTY,
+  GET_SINGLE_PROPERTY,
+} from "../actions.js";
 
 const initialState = {
   results: [
@@ -13,6 +18,7 @@ const initialState = {
     },
   ],
   savedProperties: [],
+  singleProperty: [],
 };
 
 const PropertyContext = React.createContext();
@@ -23,6 +29,11 @@ export const PropertyProvider = ({ children }) => {
   const fetchProperty = (data) => {
     let propertyData = data;
     dispatch({ type: GET_PROPERTIES, payload: propertyData });
+  };
+
+  const fetchSingleProperty = (id, results) => {
+    console.log(`Id in property_context ${id}`);
+    dispatch({ type: GET_SINGLE_PROPERTY, payload: { id, results } });
   };
 
   const addProperty = (id, mainImage, price, agency) => {
@@ -37,13 +48,15 @@ export const PropertyProvider = ({ children }) => {
     fetchProperty(property_data);
   }, []);
 
-  useEffect(() => {
-    //console.log(state.results);
-  }, [state.results]);
-
   return (
     <PropertyContext.Provider
-      value={{ ...state, fetchProperty, addProperty, removeProperty }}
+      value={{
+        ...state,
+        fetchProperty,
+        fetchSingleProperty,
+        addProperty,
+        removeProperty,
+      }}
     >
       {children}
     </PropertyContext.Provider>
