@@ -17,14 +17,14 @@ const PropertyCard = ({ property, addButton }) => {
         style={{ background: agency.brandingColors.primary }}
       >
         <div>
-          <img src={agency.logo} alt="propert image" />
-          <Link to={`/property/${id}`} className="link">
-            <FaSearch />
-          </Link>
+          <img src={agency.logo} alt="logo" />
         </div>
       </div>
       <div className="property-card__body">
-        <img src={mainImage} alt="property image" />
+        <img src={mainImage} alt="property image" className="property-image" />
+        <Link to={`/property/${id}`} className="link" className="search-icon">
+          <FaSearch />
+        </Link>
       </div>
       <div className="property-card__footer">
         {isAdded ? (
