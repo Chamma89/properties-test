@@ -5,25 +5,18 @@ import { usePropertyContext } from "../context/property_context";
 
 const SingleProperty = () => {
   const { id: id } = useParams();
-  const {
-    results,
-    fetchProperty,
-    fetchSingleProperty,
-    singleProperty,
-  } = usePropertyContext();
-
-  console.log(id);
+  const { fetchSingleProperty, singleProperty } = usePropertyContext();
 
   useEffect(() => {
-    fetchProperty(results);
-    fetchSingleProperty(id, results);
+    console.log("getting dat id");
+    fetchSingleProperty(id);
   }, []);
 
   console.log(singleProperty);
 
   return (
     <div>
-      <div></div>
+      <div>{singleProperty[0].price}</div>
       <div></div>
     </div>
   );

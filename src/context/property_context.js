@@ -18,7 +18,14 @@ const initialState = {
     },
   ],
   savedProperties: [],
-  singleProperty: [],
+  singleProperty: [
+    {
+      id: null,
+      agency: {
+        brandingColors: { primary: null },
+      },
+    },
+  ],
 };
 
 const PropertyContext = React.createContext();
@@ -31,9 +38,9 @@ export const PropertyProvider = ({ children }) => {
     dispatch({ type: GET_PROPERTIES, payload: propertyData });
   };
 
-  const fetchSingleProperty = (id, results) => {
-    console.log(`Id in property_context ${id}`);
-    dispatch({ type: GET_SINGLE_PROPERTY, payload: { id, results } });
+  const fetchSingleProperty = (id) => {
+    let propertyData = property_data;
+    dispatch({ type: GET_SINGLE_PROPERTY, payload: { id, propertyData } });
   };
 
   const addProperty = (id, mainImage, price, agency) => {
