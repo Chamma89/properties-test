@@ -9,7 +9,6 @@ const SingleProperty = () => {
   const { fetchSingleProperty, singleProperty } = usePropertyContext();
 
   useEffect(() => {
-    console.log("getting dat id");
     fetchSingleProperty(id);
   }, []);
 
@@ -37,14 +36,14 @@ const SingleProperty = () => {
           <img src={logo} alt="property logo" />
           <hr />
           <p>
-            House number {propId} is a beautifully appointed {propId} bedroom
-            apartment in Toorak Place on the second floor, boasting a private
-            balcony and secure undercover parking. Perfect for those who dream
-            of style and location. The clean lines and neutral tones throughout
-            allow you to decorate just how you like! Located in the heart of
-            Toorak Village above shops, restaurants, banks and medical centres
-            and with trams and buses within an easy walk, this is sure to be the
-            perfect addition to your retirement.
+            House <span>number {propId}</span> is a beautifully appointed{" "}
+            {propId} bedroom apartment in Toorak Place on the second floor,
+            boasting a private balcony and secure undercover parking. Perfect
+            for those who dream of style and location. The clean lines and
+            neutral tones throughout allow you to decorate just how you like!
+            Located in the heart of Toorak Village above shops, restaurants,
+            banks and medical centres and with trams and buses within an easy
+            walk, this is sure to be the perfect addition to your retirement.
           </p>
         </section>
       </div>

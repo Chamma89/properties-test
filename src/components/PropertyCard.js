@@ -22,7 +22,12 @@ const PropertyCard = ({ property, addButton }) => {
       </div>
       <div className="property-card__body">
         <img src={mainImage} alt="property image" className="property-image" />
-        <Link to={`/property/${id}`} className="link" className="search-icon">
+        <Link
+          to={`/property/${id}`}
+          className="link"
+          className="search-icon"
+          aria-label={`search-icon-${id}`}
+        >
           <FaSearch />
         </Link>
       </div>

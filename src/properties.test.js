@@ -66,3 +66,13 @@ test("Remove first peoperty in Saved properties containing dataid=4 and confirm 
     `data-testid="${firstSavedProperty}"`
   );
 });
+
+// Test #4
+
+test("Click on second property and confirm that it goes to single property page containing the correct dataid", async () => {
+  fireEvent.click(screen.queryByLabelText("search-icon-2"));
+
+  let paragraphText = await screen.getByText("number 2");
+
+  expect(paragraphText).toBeInTheDocument();
+});

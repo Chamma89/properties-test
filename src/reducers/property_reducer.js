@@ -15,21 +15,16 @@ const property_reducer = (state, action) => {
   }
 
   if (action.type === GET_SINGLE_PROPERTY) {
-    console.log(action.payload.propertyData);
     let singlePropertyFiltered = action.payload.propertyData.results.filter(
       (property) => property.id === action.payload.id
     );
 
-    console.log(`the length is ${singlePropertyFiltered.length}`);
-
     if (singlePropertyFiltered.length === 0) {
-      console.log("WENT IN HERE");
       singlePropertyFiltered = action.payload.propertyData.saved.filter(
         (property) => property.id === action.payload.id
       );
     }
 
-    console.log(singlePropertyFiltered);
     return { ...state, singleProperty: singlePropertyFiltered };
   }
 
